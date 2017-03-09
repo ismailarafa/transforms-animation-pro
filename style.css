@@ -1,0 +1,207 @@
+.main-body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  margin: auto;
+  font: normal 100% Arial, sans-serif;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+[class*="box"] {
+  background-color: green;
+  width: 50%;
+  height: 20em;
+  position: absolute;
+}
+
+.cube {
+  position: absolute;
+  width: 50%;
+  display: block;
+  margin: auto;
+  left: 40%;
+  right: 50%;
+  -webkit-transform: translateY(0.5em);
+  transform: translateY(0.5em);
+}
+
+.box1 {
+  -webkit-transform: rotate(-45deg) skew(15deg, 15deg);
+  transform: rotate(-45deg) skew(15deg, 15deg);
+  background-color: blue;
+  border: 4px solid purple;
+}
+
+.box2 {
+  -webkit-transform: rotate(15deg) skew(15deg, 15deg) translate(-50%, 100%);
+  transform: rotate(15deg) skew(15deg, 15deg) translate(-50%, 100%);
+  border: 4px solid yellow;
+}
+
+.box3 {
+  -webkit-transform: rotate(-15deg) skew(-15deg, -15deg) translate(50%, 100%);
+  transform: rotate(-15deg) skew(-15deg, -15deg) translate(50%, 100%);
+  background-color: red;
+  border: 4px solid grey;
+}
+
+section {
+  height: 43em;
+  width: 98%;
+  display: block;
+  margin: auto;
+  padding: 0.5%;
+  margin-bottom: 1%;
+}
+
+[class*="pyramid"] {
+  width: 0;
+  height: 0;
+  display: inline-block;
+  margin: auto;
+}
+
+.pyramid1,
+.pyramid1::after,
+.pyramid1::before {
+  border-left: 14em solid transparent;
+  border-right: 14em solid transparent;
+  border-bottom: 18em solid gold;
+  position: absolute;
+}
+
+.pyramid2,
+.pyramid2::after,
+.pyramid2::before {
+  border-left: 13em solid transparent;
+  border-right: 13em solid transparent;
+  border-bottom: 16em solid gold;
+  -webkit-transform: translate(120%, 12.5%);
+  transform: translate(120%, 12.5%);
+}
+
+.pyramid3,
+.pyramid3::after,
+.pyramid3::before {
+  border-left: 7.5em solid transparent;
+  border-right: 7.5em solid transparent;
+  border-bottom: 12em solid gold;
+  -webkit-transform: translate(220%, 16.75%);
+  transform: translate(220%, 16.75%);
+}
+
+.pyramid-cont {
+  height: 20em;
+  width: 98%;
+  margin: auto;
+  display: block;
+}
+
+.cube2-cont {
+  height: 200px;
+  width: 200px;
+  position: relative;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  margin-top: 150px;
+}
+
+.cube6 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-transform: translateZ(-100px);
+  transform: translateZ(-100px);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+}
+
+.cube6:hover {
+  -webkit-transform: rotateX(90deg) rotateY(90deg);
+  transform: rotateX(90deg) rotateY(90deg) translate3d(-50px, 50px, -5px);
+}
+
+.cube6:active {
+  -webkit-transform: rotateX(-45deg) rotateY(-120deg) translate3d(20px, -25px, 20px);
+  transform: rotateX(-45deg) rotateY(-120deg) translate3d(20px, -25px, 20px);
+}
+
+.cube6 figure {
+  margin: 0;
+  width: 196px;
+  height: 196px;
+  display: block;
+  position: absolute;
+  border: 2px solid #eaeaea;
+  padding: 40%;
+  font-size: 200%;
+  color: #aaa;
+}
+
+.cube6 .front {
+  -webkit-transform: rotateY(0deg) translateZ(100px);
+  transform: rotateY(0deg) translateZ(100px);
+  background-color: hsla(0, 40%, 70%, 0.5);
+}
+
+.cube6 .back {
+  -webkit-transform: rotateX(180deg) translateZ(100px);
+  transform: rotateX(180deg) translateZ(100px);
+  background-color: hsla(60, 40%, 70%, 0.5);
+}
+
+.cube6 .right {
+  -webkit-transform: rotateY(90deg) translateZ(100px);
+  transform: rotateY(90deg) translateZ(100px);
+  background-color: hsla(120, 40%, 70%, 0.5);
+}
+
+.cube6 .left {
+  -webkit-transform: rotateY(-90deg) translateZ(100px);
+  transform: rotateY(-90deg) translateZ(100px);
+  background-color: hsla(180, 40%, 70%, 0.5);
+}
+
+.cube6 .top {
+  -webkit-transform: rotateX(90deg) translateZ(100px);
+  transform: rotateX(90deg) translateZ(100px);
+  background-color: hsla(240, 40%, 70%, 0.5);
+}
+
+.cube6 .bottom {
+  -webkit-transform: rotateX(-90deg) translateZ(100px);
+  transform: rotateX(-90deg) translateZ(100px);
+  background-color: hsla(350, 40%, 70%, 0.5);
+}
+
+.cube6.show-front {
+  -webkit-transform: translateZ(-100px) rotateY(0deg);
+  transform: translateZ(-100px) rotateY(0deg);
+  background-color: hsla(0, 40%, 70%, 0.5);
+}
+
+.cube6.show-back {
+  -webkit-transform: translateZ(-100px) rotateX(-180deg);
+  transform: translateZ(-100px) rotateX(-180deg);
+}
+
+.cube6.show-right {
+  -webkit-transform: translateZ(-100px) rotateY(-90deg);
+  transform: translateZ(-100px) rotateY(-90deg);
+}
+
+.cube6.show-left {
+  -webkit-transform: translateZ(-100px) rotateY(-90deg);
+  transform: translateZ(-100px) rotateY(-90deg);
+}
