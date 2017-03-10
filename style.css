@@ -30,60 +30,80 @@ section {
   margin: auto;
 }
 
-.buttonz {
-  display: block;
-  margin: auto;
-  margin-top: 30%;
-}
-
-.buttonz::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-[class*="pyr-"] {
-  display: inline;
-  cursor: pointer;
-  width: 31%;
-  margin: 1%;
-  text-align: center;
-  padding: 1%;
-  border-radius: 4px;
-  float: left;
-  color: #545454;
-  opacity: 0.6;
-  -webkit-transition: all 1s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
-
-@keyframes run {
+@-webkit-keyframes run {
   0% {
-    background-color: hsla(160, 80%, 50%, 0.1);
+    background-color: hsla(0, 80%, 50%, 0.1);
   }
 
   50% {
     border-radius: 50%;
-    background-color: purple;
+    background-color: hsla(53.4, 35%, 42%, 0.6);
+    -webkit-transform: scale(3);
     transform: scale(3);
     border: 0;
-    left: 850px;
+    left: 920px;
+  }
+
+  75% {
+    width: 5em;
+    height: 0;
+    background-color: gold;
+    border-left: 10em solid transparent;
+    border-right: 10em solid transparent;
+    border-bottom: 14em solid gold;
+    -webkit-transform: rotateY(60deg);
+    transform: rotateY(60deg);
   }
 
   100% {
-    width: 0;
     height: 0;
+    width: 2em;
     border-left: 14em solid transparent;
     border-right: 14em solid transparent;
     border-bottom: 18em solid gold;
-    border-radius: 0;
-    left: 50%;
-    top: 100%;
+    border-radius: 5px;
+    left: 10%;
+    top: 85%;
+    -webkit-transform: translateX(-10%) rotateY(90deg);
     transform: translateX(-10%) rotateY(90deg);
   }
 }
 
-.pyramid1 {
+@keyframes run {
+  0% {
+    background-color: hsla(0, 80%, 50%, 0.1);
+  }
+
+  50% {
+    border-radius: 50%;
+    background-color: hsla(53.4, 35%, 42%, 0.6);
+    -webkit-transform: scale(3);
+    transform: scale(3);
+    border: 0;
+    left: 920px;
+  }
+
+  75% {
+    width: 5em;
+    height: 0;
+    background-color: gold;
+    -webkit-transform: rotateY(60deg);
+    transform: rotateY(60deg);
+  }
+
+  100% {
+    width: 2em;
+    height: 5em;
+    border-radius: 5px;
+    background-color: gold;
+    left: 10%;
+    top: 85%;
+    -webkit-transform: translateX(-10%) rotateY(90deg);
+    transform: translateX(-10%) rotateY(90deg);
+  }
+}
+
+.pyramid {
   height: 8em;
   width: 12em;
   border-radius: 5px;
@@ -98,34 +118,16 @@ section {
   left: 3%;
 }
 
-.cont:hover .pyramid1,
-.cont:hover .pyramid1::after,
-.cont:hover .pyramid1::before {
+.cont:hover .pyramid {
   -webkit-animation-name: run;
-  animation: run 5s ease-in-out infinite forwards;
+  -webkit-animation: run 5s ease-in-out alternate both;
+  animation: run 5s ease-in-out infinite alternate both;
 }
 
-.pyramid1::after,
-.pyramid1::before {
-  border-left: 13em solid transparent;
-  border-right: 13em solid transparent;
-  border-bottom: 16em solid gold;
-  -webkit-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
+.cont:active .pyramid {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
 }
-
-/*
-.pyramid3,
-.pyramid3::after,
-.pyramid3::before {
-  border-left: 7.5em solid transparent;
-  border-right: 7.5em solid transparent;
-  border-bottom: 12em solid gold;
-  -webkit-transform: translate(220%, 16.75%);
-  transform: translate(220%, 16.75%);
-  -webkit-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
-} */
 
 .cont {
   height: 20em;
@@ -133,7 +135,7 @@ section {
   margin: auto;
   display: block;
   padding: 2%;
-  background-color: #545454;
+  background-color: hsla(180, 20%, 80%, 0.6);
   margin-top: 3%;
   padding-bottom: 40%;
   position: relative;
@@ -148,6 +150,7 @@ section {
   -webkit-perspective: 1000px;
   perspective: 1000px;
   margin-top: 150px;
+  margin-bottom: 150px;
 }
 
 .cube {
@@ -222,6 +225,23 @@ section {
   background-color: hsla(350, 40%, 70%, 0.5);
 }
 
+@-webkit-keyframes slide {
+  0% {
+    left: 0;
+    top: 0;
+  }
+
+  50% {
+    left: 244px;
+    top: 100px;
+  }
+
+  100% {
+    left: 488px;
+    top: 0;
+  }
+}
+
 @keyframes slide {
   0% {
     left: 0;
@@ -248,6 +268,7 @@ section {
 }
 
 .draft:hover .ball {
+  -webkit-animation: slide 2s linear;
   animation: slide 2s linear;
 }
 
