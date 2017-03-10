@@ -23,11 +23,8 @@ section {
   margin-bottom: 1%;
 }
 
-[class*="pyramid"] {
-  width: 0;
-  height: 0;
-  display: inline-block;
-  margin: auto;
+h1 {
+  text-align: center;
 }
 
 @-webkit-keyframes run {
