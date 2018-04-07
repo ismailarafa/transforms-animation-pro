@@ -27,108 +27,120 @@ h1 {
   text-align: center;
 }
 
-@-webkit-keyframes run {
-  0% {
-    background-color: hsla(0, 80%, 50%, 0.1);
-  }
+[class*="pyramid"] {
+  opacity: 0;
+  visibility: hidden;
+}
 
-  50% {
-    border-radius: 50%;
-    background-color: hsla(53.4, 35%, 42%, 0.6);
-    -webkit-transform: scale(3);
-    transform: scale(3);
-    border: 0;
-    left: 920px;
-  }
-
-  75% {
-    width: 5em;
-    height: 0;
-    background-color: gold;
-    border-left: 10em solid transparent;
-    border-right: 10em solid transparent;
-    border-bottom: 14em solid gold;
-    -webkit-transform: rotateY(60deg);
-    transform: rotateY(60deg);
-  }
-
-  100% {
-    height: 0;
-    width: 2em;
-    border-left: 14em solid transparent;
-    border-right: 14em solid transparent;
-    border-bottom: 18em solid gold;
-    border-radius: 5px;
-    left: 10%;
-    top: 85%;
-    -webkit-transform: translateX(-10%) rotateY(90deg);
-    transform: translateX(-10%) rotateY(90deg);
+@keyframes show {
+  to {
+    opacity: 1;
+    visibility: visible;
   }
 }
 
 @keyframes run {
-  0% {
-    background-color: hsla(0, 80%, 50%, 0.1);
+  16.6666667% {
+    animation-delay: 100ms;
+  }
+
+  33.3333333% {
+    animation-delay: 200ms;
   }
 
   50% {
-    border-radius: 50%;
-    background-color: hsla(53.4, 35%, 42%, 0.6);
-    -webkit-transform: scale(3);
-    transform: scale(3);
-    border: 0;
-    left: 920px;
+    animation-delay: 300ms;
   }
 
-  75% {
-    width: 5em;
-    height: 0;
-    background-color: gold;
-    -webkit-transform: rotateY(60deg);
-    transform: rotateY(60deg);
+  66.6666667% {
+    animation-delay: 400ms;
+  }
+
+  83.33333667% {
+    animation-delay: 500ms;
   }
 
   100% {
-    width: 2em;
-    height: 5em;
-    border-radius: 5px;
-    background-color: gold;
-    left: 10%;
-    top: 85%;
-    -webkit-transform: translateX(-10%) rotateY(90deg);
-    transform: translateX(-10%) rotateY(90deg);
+    animation-delay: 600ms;
   }
 }
 
-.pyramid {
-  height: 8em;
+.pyramid,
+.pyramid--3,
+.pyramid--5 {
   width: 12em;
-  border-radius: 5px;
-  border-left: 0;
-  border-right: 0;
-  border-bottom: 0;
+  border-radius: 1px;
+  border-left: 120px dotted transparent;
+  border-right: 80px dotted transparent;
+  border-bottom: 120px solid goldenrod;
   position: absolute;
   -webkit-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
-  background-color: black;
-  top: 6.1%;
-  left: 3%;
+  bottom: 0;
 }
 
-.cont:hover .pyramid {
-  -webkit-animation-name: run;
-  -webkit-animation: run 5s ease-in-out alternate both;
-  animation: run 5s ease-in-out infinite alternate both;
+.pyramid--2,
+.pyramid--4,
+.pyramid--6 {
+  width: 15em;
+  border-radius: 1px;
+  border-left: 130px dotted transparent;
+  border-right: 110px dotted transparent;
+  border-bottom: 150px solid maroon;
+  position: absolute;
+  left: 14%;
+  bottom: 0;
+  transition: all 1s ease-in-out;
 }
 
-.cont:active .pyramid {
+.pyramid--3 {
+  left: 30%;
+}
+
+.pyramid--4 {
+  left: 40%;
+}
+
+.pyramid--5 {
+  left: 56%;
+}
+
+.pyramid--6 {
+  left: 68%;
+}
+
+.cont:hover [class*="pyramid"] {
+  animation: show 0.5s linear forwards;
+}
+
+.cont:hover .pyramid--2 {
+  animation-delay: 400ms;
+}
+
+.cont:hover .pyramid--3 {
+  animation-delay: 800ms;
+}
+
+.cont:hover .pyramid--4 {
+  animation-delay: 1200ms;
+}
+
+.cont:hover .pyramid--5 {
+  animation-delay: 1600ms;
+}
+
+.cont:hover .pyramid--6 {
+  animation-delay: 2000ms;
+}
+
+.cont:active [class*="pyramid"] {
   -webkit-animation-play-state: paused;
   animation-play-state: paused;
 }
 
 .cont {
   height: 20em;
-  width: 98%;
+  width: 100%;
   margin: auto;
   display: block;
   padding: 2%;
@@ -136,8 +148,7 @@ h1 {
   margin-top: 3%;
   padding-bottom: 40%;
   position: relative;
-  border-radius: 1%;
-  box-shadow: 3px 5px 10px hsla(210, 60%, 30%, 0.7);
+  box-shadow: 2px 2px 0 10px hsla(210, 60%, 30%, 0.7);
 }
 
 .cube-cont {
@@ -222,37 +233,25 @@ h1 {
   background-color: hsla(350, 40%, 70%, 0.5);
 }
 
-@-webkit-keyframes slide {
-  0% {
-    left: 0;
-    top: 0;
-  }
-
-  50% {
-    left: 244px;
-    top: 100px;
-  }
-
-  100% {
-    left: 488px;
-    top: 0;
-  }
-}
-
 @keyframes slide {
-  0% {
-    left: 0;
-    top: 0;
+  25% {
+    left: 300px;
+    top: 80px;
   }
 
   50% {
-    left: 244px;
-    top: 100px;
+    left: 600px;
+    top: 0;
+  }
+
+  75% {
+    top: 80px;
+    left: 900px;;
   }
 
   100% {
-    left: 488px;
     top: 0;
+    left: 1190px;
   }
 }
 
@@ -265,8 +264,8 @@ h1 {
 }
 
 .draft:hover .ball {
-  -webkit-animation: slide 2s linear;
-  animation: slide 2s linear;
+  -webkit-animation: slide 4s linear;
+  animation: slide 4s linear alternate infinite;
 }
 
 .ball {
@@ -275,4 +274,6 @@ h1 {
   height: 50px;
   position: absolute;
   width: 50px;
+  top: 0;
+  left: 0;
 }
